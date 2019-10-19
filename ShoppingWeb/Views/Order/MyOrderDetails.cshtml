@@ -1,0 +1,34 @@
+﻿@model IEnumerable<ShoppingWeb.Models.OrderDetail>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@String.Format("Order Number{0}", this.Model.First().Id)</h2>
+<hr />
+
+<table class="table">
+    <tr>
+        <th>Product Name</th>
+        <th>Product Price</th>
+        <th>Qty</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.ActionLink("return to My Order", "MyOrder", new { }, new { @class = "btn btn-default" })
+

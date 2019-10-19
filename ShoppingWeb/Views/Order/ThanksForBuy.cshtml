@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "thank you for purchasing";
+}
+<h2>@ViewBag.Title.</h2>
+<p>
+    Your oerder was completed.
+</p>
+<p class="text-danger">
+   If you want to check progress, please press  @Html.ActionLink("My order", "MyOrder", "Order", new {@onclick="ClearCart()"}), or press @Html.ActionLink("Here", "Index", "Home", new { @onclick = "ClearCart()" }) return to Home.
+</p>
+
+<script>
+ function ClearCart() {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ClearCart","Cart")',
+                data: {}
+                })
+                .done(function (msg) {
+                //把回傳的頁面填入li #Cart
+                $("li#Cart").html(msg);
+                });
+ }
+    </script>

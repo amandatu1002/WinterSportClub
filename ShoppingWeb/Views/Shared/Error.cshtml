@@ -1,0 +1,21 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+
+}
+
+<div class="error">
+   
+    <h3 class="font-bold">Oops！Something went wrong.</h3>
+    <div class="error-desc">
+        The application has encountered an unknown error.<br />
+        <div>
+            <a class=" login-detail-panel-button btn" href="@Url.Action("Index","Home")">
+                <i class="fa fa-arrow-left"></i>
+                Return to Home
+            </a>
+        </div>
+    </div>
+</div>
+
